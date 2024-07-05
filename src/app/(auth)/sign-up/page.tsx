@@ -7,7 +7,9 @@ import Button from "../../../components/shared/Button";
 import Image from "next/image";
 import img from "../../../assets/images/xd.jpg";
 import Link from "next/link";
+import "../../../assets/styles/globals.scss";
 const MyContext = createContext(null);
+
 
 // Define Yup validation schema
 const SignUpSchema = Yup.object().shape({
@@ -25,7 +27,7 @@ const SignUpForm = () => {
   return (
     <MyContext.Provider value={{}}>
       <div className="wrapper">
-        <div className="img">
+        <div className="img image-container">
           <Image src={img} alt="XD Image" width={571} height={600} />
           </div>
           <div className="formContainer">
@@ -37,7 +39,7 @@ const SignUpForm = () => {
                 <h2>Register</h2>
               </Link>
             </div>
-            <div className="form">
+            <div className="form-container">
             <Formik
               initialValues={{
                 username: "",
