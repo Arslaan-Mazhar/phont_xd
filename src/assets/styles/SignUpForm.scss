@@ -1,0 +1,101 @@
+
+.wrapper{
+  width: 1080px;
+  height: 600px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.img{
+  display: flex;
+  width: 571px;
+  height: 600px;
+  flex: 1;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  font: normal normal bold 20px/24px Inter;
+  width: 200px;
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.link {
+  color: #655095;
+  text-decoration: none;
+
+  &:visited {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+
+  &:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+
+
+  &:active {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.formContainer{
+  display: flex;
+  flex-direction: column;
+  background-color: #150F1E;
+padding-left: 20px;
+  width: 509px;
+  height: 600px;
+  border-radius: 20px;
+opacity: 1;
+backdrop-filter: blur(50px);
+-webkit-backdrop-filter: blur(50px);
+}
+.form{
+  
+}
+.inputWrapper {
+  position: relative;
+  margin-bottom: 1.5rem; /* Adjust spacing as needed */
+}
+
+.inputBox {
+  color: #ffffff;
+  font: normal normal normal 20px/24px Inter;
+  width: 90%;
+  padding: 0.5rem;
+  border: none;
+  background-color: transparent;
+  outline: none; /* Remove default focus outline */
+  transition: border-color 0.3s ease; /* Smooth transition for border color */
+  border-bottom: 2px solid #ffffff; /* White bottom border */
+}
+
+.inputBox:focus {
+  border-bottom-color: #cccccc; /* Lighter border color on focus */
+}
+
+/* Optional: Placeholder styles */
+.inputBox::placeholder {
+  font-size: x-large;
+  color: #655095; /* Placeholder text color */
+  // opacity: 0.9; /* Placeholder opacity */
+}
+
+h2{
+  margin-bottom: 6rem;
+  text-decoration: underline;
+}

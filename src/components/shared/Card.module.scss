@@ -1,0 +1,22 @@
+.centeredCard {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+    background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  }
+  
+  .card {
+    background-color: #000000;
+    ; 
+    color: #ffffff; 
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(192, 191, 191, 0.15);
+    padding: 1.5rem;
+    text-align: center; /* Center text horizontally */
+  }
+  
