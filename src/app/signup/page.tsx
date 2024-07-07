@@ -2,12 +2,13 @@
 import React, { createContext } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import "../../../assets/styles/SignUpForm.scss";
-import Button from "../../../components/shared/Button";
+import "../../assets/styles/SignUpForm.scss";
+import Button from "../../components/shared/Button";
 import Image from "next/image";
-import img from "../../../assets/images/xd.jpg";
+import img from "../../assets/images/xd.jpg";
 import Link from "next/link";
-import "../../../assets/styles/globals.scss";
+import axios from "axios";
+
 const MyContext = createContext(null);
 
 
@@ -24,6 +25,19 @@ const SignUpSchema = Yup.object().shape({
 });
 
 const SignUpForm = () => {
+  const onSubmit = async (values, { setSubmitting }) => {
+    try {
+      const response = await axios.post('/api/auth/signup', values, {
+          headers: {
+              'Content-Type': 'application/json',
+          },
+      });
+      console.log(response.data);
+  } catch (error) {
+      console.error('Error:', error);
+  }
+    setSubmitting(false);
+  };
   return (
     <MyContext.Provider value={{}}>
       <div className="wrapper">
@@ -32,10 +46,10 @@ const SignUpForm = () => {
           </div>
           <div className="formContainer">
             <div className="links">
-              <Link href="/sign-in">
+              <Link href="/login">
               <h2>Login</h2>
               </Link>
-              <Link href="/sign-up" className="link">
+              <Link href="/signup" className="link">
                 <h2>Register</h2>
               </Link>
             </div>
@@ -48,12 +62,7 @@ const SignUpForm = () => {
                 confirmPassword: "",
               }}
               validationSchema={SignUpSchema}
-              onSubmit={(values, { setSubmitting }) => {
-                setTimeout(() => {
-                  alert(JSON.stringify(values, null, 2));
-                  setSubmitting(false);
-                }, 400);
-              }}
+              onSubmit={onSubmit}
             >
               {({ isSubmitting }) => (
                 <Form className="space-y-4">
@@ -114,7 +123,7 @@ const SignUpForm = () => {
                     /> */}
                   </div>
                   <div className="flex justify-center">
-                    <Button> Sign Up</Button>
+                    <Button type="submit" disabled={isSubmitting}> Sign Up</Button>
                   </div>
                 </Form>
               )}

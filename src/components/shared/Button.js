@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import styles from './Button.module.scss';
 
-const Button = ({ children, onClick, type, variant }) => {
+const Button = ({ children, onClick, type, variant, disabled }) => {
   const buttonClasses = `${styles.button} ${variant === 'secondary' ? styles.secondary : styles.primary}`;
 
   return (
-    <button type={type} className={buttonClasses} onClick={onClick}>
+    <button type={type} className={buttonClasses} onClick={onClick} disabled={disabled}>
       {children}
     </button>
   );
@@ -13,6 +13,7 @@ const Button = ({ children, onClick, type, variant }) => {
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
+  disabled: PropTypes.bool,
   onClick: PropTypes.func,
   type: PropTypes.oneOf(['button', 'submit', 'reset']),
   variant: PropTypes.oneOf(['primary', 'secondary']),
