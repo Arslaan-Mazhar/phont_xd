@@ -2,7 +2,7 @@
 import React, { createContext } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import "../../assets/styles/SignUpForm.scss";
+import "../../assets/styles//SignUpForm.scss";
 import Button from "../../components/shared/Button";
 import Image from "next/image";
 import img from "../../assets/images/xd.jpg";

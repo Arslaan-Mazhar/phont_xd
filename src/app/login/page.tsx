@@ -19,19 +19,22 @@ const SignUpSchema = Yup.object().shape({
 });
 
 const LoginForm = () => {
-  const onSubmit = async (values, { setSubmitting }) => {
+  const onSubmit = async (values: any, { setSubmitting }) => {
     try {
       const response = await axios.post('/api/auth/login', values, {
-          headers: {
-              'Content-Type': 'application/json',
-          },
-      });
-      console.log(response.data);
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+      console.log('Login successful:', response.data);
+      // Handle successful login (e.g., redirect)
   } catch (error) {
-      console.error('Error:', error);
+      console.error('Login error:', error);
+  } finally {
+      setSubmitting(false);
   }
-    setSubmitting(false);
-  };
+};
+
   return (
     <MyContext.Provider value={{}}>
       <div className="wrapper">
